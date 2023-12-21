@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3a777367.css",
+    "main.js": "/static/js/main.833f48db.js",
+    "static/media/vegetables.jpg": "/static/media/vegetables.fbd393b4b028789e655a.jpg",
+    "static/media/logo.png": "/static/media/logo.44bb4b9289202c3948b2.png",
+    "static/media/sell.png": "/static/media/sell.5f2c11a453a521183c35.png",
+    "static/media/industry.jpg": "/static/media/industry.284018456956c0bae96b.jpg",
+    "static/media/agricultural.jpg": "/static/media/agricultural.13097eaf21c0940d002d.jpg",
+    "static/media/tomato.jpg": "/static/media/tomato.8d6862bd477b50e0bbf1.jpg",
+    "static/media/juice.jpg": "/static/media/juice.1481f9995dc44c2ae041.jpg",
+    "static/media/ketchup.jpg": "/static/media/ketchup.3b31101372eb3e70298d.jpg",
+    "index.html": "/index.html",
+    "main.3a777367.css.map": "/static/css/main.3a777367.css.map",
+    "main.833f48db.js.map": "/static/js/main.833f48db.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3a777367.css",
+    "static/js/main.833f48db.js"
+  ]
+}
