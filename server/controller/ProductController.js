@@ -5,7 +5,6 @@ const fs = require("fs");
 const {User} = require("../models/userModel");
 const {Address} = require("../models/addressModel");
 const { default: mongoose } = require("mongoose");
-const path = require("path");
 
 
 
@@ -53,50 +52,33 @@ const createProduct = async (req, res) => {
     const images = [];
     const files = req.files;
 
-
-    
- try {
-     
     if (!validationResult(req).isEmpty()) {
-        
-        for (const file of files) {
-            const pat = file.path;
-            
-            console.log("path: - ", pat);
-            console.log("resolve: -", path.resolve(__dirname, pat));
 
-            
-            fs.unlinkSync(path.resolve(__dirname, pat));
+        for (const file of files) {
+            const { path } = file;
+            fs.unlinkSync(path);
         }
 
         const result = validationResult(req).errors.map(m => m.msg[0]);
         return res.status(400).json({ status: "error", result: result })
     }
 
-   
+    try {
 
         for (const file of files) {
-            const pat = file.path;
-            const result = await uploadCloud(path.resolve(__dirname, pat));
-            
+            const { path } = file;
+            const result = await uploadCloud(path);
             images.push(result.url);
-            
-            fs.unlinkSync(path.resolve(__dirname, pat));
-            
+            fs.unlinkSync(path);
         }
-        
         
         req.body.userId = req.user.id;
 
-        console.log(req.body);
-        
         const product = await Product.create({ ...req.body, images: images , address: new mongoose.mongo.ObjectId(req.body.address)});
 
-        console.log(product);
-        
+
         let user = await User.findById(req.user.id);
 
-        console.log(user);
         
         user.sell.push(product._id)
         user = await User.findByIdAndUpdate(req.user.id, user, {new: true});
@@ -147,13 +129,9 @@ const deleteProduct = async (req, res) => {
 
         user.sell = user.sell.filter(s=> s.toString()!==req.params.id);
 
-        console.log(user);
-
         user = await User.findByIdAndUpdate(product.userId, user, {new: true});
 
         const address = await Address.findByIdAndDelete(product.address);
-
-         console.log(address);
 
         await Product.findByIdAndDelete(req.params.id);
 
