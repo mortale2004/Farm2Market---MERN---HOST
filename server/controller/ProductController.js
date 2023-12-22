@@ -72,13 +72,19 @@ const createProduct = async (req, res) => {
             images.push(result.url);
             fs.unlinkSync(path);
         }
-
+        
         
         req.body.userId = req.user.id;
 
+        console.log(req.body);
+        
         const product = await Product.create({ ...req.body, images: images , address: new mongoose.mongo.ObjectId(req.body.address)});
 
+        console.log(product);
+        
         let user = await User.findById(req.user.id);
+
+        console.log(user);
         
         user.sell.push(product._id)
         user = await User.findByIdAndUpdate(req.user.id, user, {new: true});
@@ -129,9 +135,13 @@ const deleteProduct = async (req, res) => {
 
         user.sell = user.sell.filter(s=> s.toString()!==req.params.id);
 
+        console.log(user);
+
         user = await User.findByIdAndUpdate(product.userId, user, {new: true});
 
         const address = await Address.findByIdAndDelete(product.address);
+
+         console.log(address);
 
         await Product.findByIdAndDelete(req.params.id);
 
