@@ -1,21 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.3a777367.css",
-    "main.js": "/static/js/main.833f48db.js",
+    "main.css": "/static/css/main.1dc47cce.css",
+    "main.js": "/static/js/main.8a8f06d8.js",
     "static/media/vegetables.jpg": "/static/media/vegetables.fbd393b4b028789e655a.jpg",
+    "static/media/juice2.jpeg": "/static/media/juice2.a8e7a6b624ddee6f8ac1.jpeg",
+    "static/media/papad2.jpg": "/static/media/papad2.9033e426d22a16b7cac9.jpg",
     "static/media/logo.png": "/static/media/logo.44bb4b9289202c3948b2.png",
     "static/media/sell.png": "/static/media/sell.5f2c11a453a521183c35.png",
+    "static/media/grape.jpg": "/static/media/grape.0e44259c354cd32b157d.jpg",
     "static/media/industry.jpg": "/static/media/industry.284018456956c0bae96b.jpg",
+    "static/media/vegetables2.jpg": "/static/media/vegetables2.07a18c90ec85253565f9.jpg",
     "static/media/agricultural.jpg": "/static/media/agricultural.13097eaf21c0940d002d.jpg",
+    "static/media/med1.jpg": "/static/media/med1.566c0e29df71f8cb08ab.jpg",
     "static/media/tomato.jpg": "/static/media/tomato.8d6862bd477b50e0bbf1.jpg",
+    "static/media/sauce.jpg": "/static/media/sauce.68616cc0fea735d5894d.jpg",
+    "static/media/papad.jpg": "/static/media/papad.7c8d3e690a5d0cef464f.jpg",
     "static/media/juice.jpg": "/static/media/juice.1481f9995dc44c2ae041.jpg",
     "static/media/ketchup.jpg": "/static/media/ketchup.3b31101372eb3e70298d.jpg",
     "index.html": "/index.html",
-    "main.3a777367.css.map": "/static/css/main.3a777367.css.map",
-    "main.833f48db.js.map": "/static/js/main.833f48db.js.map"
+    "main.1dc47cce.css.map": "/static/css/main.1dc47cce.css.map",
+    "main.8a8f06d8.js.map": "/static/js/main.8a8f06d8.js.map"
   },
   "entrypoints": [
-    "static/css/main.3a777367.css",
-    "static/js/main.833f48db.js"
+    "static/css/main.1dc47cce.css",
+    "static/js/main.8a8f06d8.js"
   ]
 }

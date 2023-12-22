@@ -5,11 +5,14 @@ const cors = require("cors");
 const path = require("path");
 const connectToMongoDb = require("./config/db");
 
+
 connectToMongoDb();
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+
 
 app.use(express.static(path.resolve(__dirname, "../client/build")));
 
