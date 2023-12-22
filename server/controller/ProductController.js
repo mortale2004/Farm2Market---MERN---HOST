@@ -5,6 +5,7 @@ const fs = require("fs");
 const {User} = require("../models/userModel");
 const {Address} = require("../models/addressModel");
 const { default: mongoose } = require("mongoose");
+const path = require("path");
 
 
 
@@ -56,7 +57,9 @@ const createProduct = async (req, res) => {
     if (!validationResult(req).isEmpty()) {
 
         for (const file of files) {
-            const { path } = file;
+            const { pat } = file.path;
+            console.log("path: - ", pat);
+            console.log("resolve: -", path.resolve(__dirname, pat));
             fs.unlinkSync(path);
         }
 
