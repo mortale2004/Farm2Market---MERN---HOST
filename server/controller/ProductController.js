@@ -54,15 +54,19 @@ const createProduct = async (req, res) => {
     const files = req.files;
 
 
+    
+ try {
+     
     if (!validationResult(req).isEmpty()) {
-
-
-         try {
+        
         for (const file of files) {
-            const { pat } = file.path;
+            const pat = file.path;
+            
             console.log("path: - ", pat);
             console.log("resolve: -", path.resolve(__dirname, pat));
-            fs.unlinkSync(path);
+
+            
+            fs.unlinkSync(path.resolve(__dirname, pat));
         }
 
         const result = validationResult(req).errors.map(m => m.msg[0]);
@@ -72,10 +76,13 @@ const createProduct = async (req, res) => {
    
 
         for (const file of files) {
-            const { path } = file;
-            const result = await uploadCloud(path);
+            const pat = file.path;
+            const result = await uploadCloud(path.resolve(__dirname, pat));
+            
             images.push(result.url);
-            fs.unlinkSync(path);
+            
+            fs.unlinkSync(path.resolve(__dirname, pat));
+            
         }
         
         
