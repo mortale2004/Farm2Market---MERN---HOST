@@ -3,11 +3,16 @@ const {User} = require("../models/userModel");
 const { ConnectionStates } = require("mongoose");
 
 const authUser = (req, res, next)=>{
-    const authToken = req.header("auth-token");
+    let authToken = req.header("auth-token");
 
     if (!authToken)
     {
-        return res.status(401).json({status: "error", result: ["अनधिकृत वापरकर्ता!", "no auth"]});
+        authToken = req.header("Auth-Token");
+    }
+
+    if (!authToken)
+    {
+        return res.status(401).json({status: "error", result: ["अनधिकृत वापरकर्ता!", "no auth", authToken]});
     }
 
     try {
