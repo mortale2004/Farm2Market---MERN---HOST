@@ -56,6 +56,8 @@ const createProduct = async (req, res) => {
 
     if (!validationResult(req).isEmpty()) {
 
+
+         try {
         for (const file of files) {
             const { pat } = file.path;
             console.log("path: - ", pat);
@@ -67,7 +69,7 @@ const createProduct = async (req, res) => {
         return res.status(400).json({ status: "error", result: result })
     }
 
-    try {
+   
 
         for (const file of files) {
             const { path } = file;
