@@ -5,6 +5,7 @@ const fs = require("fs");
 const { User } = require("../models/userModel");
 const { Address } = require("../models/addressModel");
 const { default: mongoose } = require("mongoose");
+const path = require("path");
 
 const getAllProducts = async (req, res) => {
   try {
@@ -56,6 +57,11 @@ const createProduct = async (req, res) => {
   if (!validationResult(req).isEmpty()) {
     for (const file of files) {
       const { path } = file;
+      console.log(
+        "i am in create product validations ",
+        path,
+        " dir: " + __dirname + path
+      );
       fs.unlinkSync(path);
     }
 
@@ -68,6 +74,11 @@ const createProduct = async (req, res) => {
       const { path } = file;
       const result = await uploadCloud(path);
       images.push(result.url);
+      console.log(
+        "i am in create product upload cloudinary",
+        path,
+        " dir: " + __dirname + path
+      );
       fs.unlinkSync(path);
     }
 
